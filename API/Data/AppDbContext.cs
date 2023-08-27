@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
-    public class AppDbContext: DbContext
+    public class AppDbContext : DbContext
     {
         public DbSet<Villa> Villas { get; set; }
 
@@ -18,7 +18,7 @@ namespace API.Data
             _ = modelBuilder.Entity<Villa>().HasData(
                 new Villa
                 {
-                    Id=1,
+                    Id = 1,
                     Name = "Royal Villa",
                     Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
                     ImageUrl = "https://dotnetmasteryimages.blob.core.windows.net/bluevillaimages/villa3.jpg",
@@ -37,7 +37,7 @@ namespace API.Data
                     Occupancy = 4,
                     Rate = 300,
                     Sqft = 550,
-                    Amenity="",
+                    Amenity = "",
                     CreatedDate = DateTime.Now
                 },
                 new Villa

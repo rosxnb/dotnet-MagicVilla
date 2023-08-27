@@ -1,5 +1,6 @@
-using API;
 using API.Data;
+using API.Repository;
+using API.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 );
 
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

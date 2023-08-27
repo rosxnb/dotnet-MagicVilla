@@ -8,9 +8,9 @@ namespace API
     {
         public MappingConfig()
         {
-            CreateMap<Villa, VillaDTO>().ReverseMap();
-            CreateMap<Villa, VillaCreateDTO>().ReverseMap();
-            CreateMap<Villa, VillaUpdateDTO>().ReverseMap();
+            _ = CreateMap<Villa, VillaDTO>().ReverseMap();
+            _ = CreateMap<Villa, VillaCreateDTO>().ReverseMap();
+            _ = CreateMap<Villa, VillaUpdateDTO>().ReverseMap();
         }
     }
 }

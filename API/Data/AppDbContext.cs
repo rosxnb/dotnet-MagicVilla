@@ -6,11 +6,13 @@ namespace API.Data
     public class AppDbContext : DbContext
     {
         public DbSet<Villa> Villas { get; set; }
+        public DbSet<VillaNumber> VillaNumbers { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> opts)
             : base(opts)
         {
             Villas = Set<Villa>();
+            VillaNumbers = Set<VillaNumber>();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

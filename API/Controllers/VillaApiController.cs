@@ -96,7 +96,7 @@ namespace API.Controllers
                 // check if villa name is unique or not
                 if (await _dbVilla.GetAsync(u => u.Name == createDTO.Name) != null)
                 {
-                    ModelState.AddModelError("CustomDuplicateError", "Villa already Exits!");
+                    ModelState.AddModelError("ErrorMessages", "Villa already Exits!");
                     return BadRequest(ModelState);
                 }
 

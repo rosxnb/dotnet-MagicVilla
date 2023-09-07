@@ -1,0 +1,19 @@
+using MagicVilla_Web.DTOs;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace MagicVilla_Web.ViewModels
+{
+    public class VillaNumberCreateVM
+    {
+        public VillaNumberCreateDTO VillaNumber { get; set; }
+
+        [ValidateNever]
+        public IEnumerable<SelectListItem>? VillaList { get; set; }
+
+        public VillaNumberCreateVM()
+        {
+            VillaNumber = new VillaNumberCreateDTO();
+        }
+    }
+}

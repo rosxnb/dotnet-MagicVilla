@@ -31,7 +31,7 @@ namespace API.Controllers
         {
             try
             {
-                IEnumerable<VillaNumber> villaNumbers = await _dbVillaNumber.GetAllAsync();
+                IEnumerable<VillaNumber> villaNumbers = await _dbVillaNumber.GetAllAsync(includeProperties: "Villa");
                 _response.Result = _mapper.Map<List<VillaNumberDTO>>(villaNumbers);
                 _response.StatusCode = HttpStatusCode.OK;
                 return Ok(_response);
@@ -98,13 +98,13 @@ namespace API.Controllers
 
                 if (await _dbVillaNumber.GetAsync(u => u.VillaNo == createDTO.VillaNo) != null)
                 {
-                    ModelState.AddModelError("CustomDuplicateError", "Villa Number already exits.");
+                    ModelState.AddModelError("ErrorMessages", "Villa Number already exits.");
                     return NotFound(ModelState);
                 }
 
                 if (await _dbVilla.GetAsync(u => u.Id == createDTO.VillaId) is null)
                 {
-                    ModelState.AddModelError("InvalidForeignKeyError", "VillaId doesn't exist");
+                    ModelState.AddModelError("ErrorMessages", "VillaId doesn't exist");
                     return NotFound(ModelState);
                 }
 
@@ -141,7 +141,7 @@ namespace API.Controllers
 
                 if (await _dbVilla.GetAsync(u => u.Id == updateDTO.VillaId) is null)
                 {
-                    ModelState.AddModelError("InvalidForeignKeyError", "VillaId doesn't exist");
+                    ModelState.AddModelError("ErrorMessages", "VillaId doesn't exist");
                     return NotFound(ModelState);
                 }
 

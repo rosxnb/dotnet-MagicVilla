@@ -7,12 +7,14 @@ namespace API.Data
     {
         public DbSet<Villa> Villas { get; set; }
         public DbSet<VillaNumber> VillaNumbers { get; set; }
+        public DbSet<LocalUser> LocalUsers { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> opts)
             : base(opts)
         {
             Villas = Set<Villa>();
             VillaNumbers = Set<VillaNumber>();
+            LocalUsers = Set<LocalUser>();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
